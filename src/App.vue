@@ -1,7 +1,9 @@
 <template>
-    <div class="container">
-        <app-photo :style='{gridColumn: "1/5", gridRow:"1/3"}'>
-                <img src="./photos/photo01.jpg" >
+    <div>
+        <div class="container">
+        <app-photo :style='{gridColumn: "1/5", gridRow:"1/3", position:"relative"}'>
+                <p class="title">Bounce In / Bounce Out</p>
+                <img src="./photos/photo01.jpg" @click="showLarge">
         </app-photo>
         <app-photo :style='{gridColumn: "5/7", gridRow:"1/2"}'>
                 <img src="./photos/photo02.jpg" >
@@ -36,15 +38,29 @@
          <app-photo :style='{gridColumn: "5/7", gridRow:"7/8"}'>
                 <img src="./photos/photo12.jpg" >
         </app-photo>
+        
     </div>
+        <app-show-photo></app-show-photo>
+    </div>
+   
 </template>
 
 <script>
     import Photo from './components/Photo.vue';
+    import ShowPhoto from './components/ShowPhoto.vue';
+    
+
     
     export default {
         components: {
-            'appPhoto' : Photo
+            'appPhoto' : Photo,
+            'appShowPhoto' : ShowPhoto
+        },
+        methods: {
+            showLarge(e) {
+                const photo = e.target;
+
+            }
         }
     }
 </script>
@@ -52,15 +68,25 @@
 <style>
     .container {
         width:80%;
-        margin:auto;
+        margin: 40px auto;
         display: grid;
         grid-template-columns: 16% 16% 16% 16% 16% 16%;
         grid-template-rows: 14% 14% 14% 14% 14% 14% 14%;
         grid-gap:3px;
+        position: relative;
     }
-    img {
-        width:100%;
-        border-radius:15px;
+    .title {
+        z-index:50;
+        position:absolute;
+        top:40%;
+        left:35%;
+        color:#ffff;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 20px;
     }
-
+    .largePhoto {
+        
+    }
+   
 </style>
