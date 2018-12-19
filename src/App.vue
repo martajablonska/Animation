@@ -2,8 +2,10 @@
     <div>
         <div class="container">
         <app-photo :style='{gridColumn: "1/5", gridRow:"1/3", position:"relative"}'>
-                <p class="title">Bounce In / Bounce Out</p>
-                <img src="./photos/photo01.jpg" @click="showLarge">
+                <transition>
+                    <p class="title">Bounce In / Bounce Out</p>
+                </transition>
+                <img src="./photos/photo01.jpg" @showedPhoto="isShow=$event">
         </app-photo>
         <app-photo :style='{gridColumn: "5/7", gridRow:"1/2"}'>
                 <img src="./photos/photo02.jpg" >

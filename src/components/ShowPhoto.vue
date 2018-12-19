@@ -1,8 +1,13 @@
-<template>
-    <div class="show" v-if="isShow">
-        <img src="./../photos/photo01.jpg" class="showPhoto">
-        <button class="closeBtn" @click="isShow=!isShow">X</button>
-    </div>
+<template> 
+        <transition
+                enter-active-class="animated bounceInDown"
+                leave-active-class="animated bounceOutDown">
+                <div class="show" v-if="isShow">
+                    <img src="./../photos/photo03.jpg" class="showPhoto">
+                    <button class="closeBtn" @click="isShow=!isShow">X</button>
+                </div>
+            
+        </transition>
 </template>
 
 <script>
@@ -16,9 +21,6 @@
 </script>
 
 <style>
-    .hiddenPhoto{
-        display: hidden;
-    }
     .show {
         z-index:98; 
         position: fixed;
@@ -28,8 +30,7 @@
     .showPhoto {
         height: 90vh;
         width: auto;
-        cursor:default;
-        
+        cursor:default;        
     }
     .showPhoto:hover {
         filter: none;
