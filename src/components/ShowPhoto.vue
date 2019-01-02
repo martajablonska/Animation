@@ -2,21 +2,43 @@
         <transition
                 enter-active-class="animated bounceInDown"
                 leave-active-class="animated bounceOutDown">
-                <div class="show" v-if="isShow">
-                    <img src="./../photos/photo03.jpg" class="showPhoto">
-                    <button class="closeBtn" @click="isShow=!isShow">X</button>
+                <div class="show" v-if='isShow'>
+                    <img src="./../photos/photo01.jpg" class="showPhoto">
+                    <button class="closeBtn" @click="showPhoto">X</button>
                 </div>
             
         </transition>
 </template>
 
 <script>
+    import {showPhotoBus} from './../main.js';
     export default {
+        /*props: {
+            isShow: {
+                type: Boolean,
+                deafult:false
+            }
+        },
+        methods: {
+            showPhoto() {
+                this.isShow=!this.isShow;
+                showPhotoBus.$emit('showingPhoto', this.isShow);
+            }
+        }*.
+        /*props: {
+            isShow: Boolean
+        }*/
         data() {
             return {
-                isShow:true
+                isShow:false
             };
+        },
+        methods: {
+            showPhoto() {
+                this.isShow = !this.isShow
+            }
         }
+ 
     }
 </script>
 
